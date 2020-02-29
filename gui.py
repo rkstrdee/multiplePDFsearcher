@@ -2,6 +2,8 @@ from tkinter import *
 import PyPDF2
 import re
 import os
+import webbrowser
+
 
 files = [f for f in os.listdir('.') if os.path.isfile(f)]
 files = filter(lambda f: f.endswith(('.pdf','.PDF')), files)
@@ -26,10 +28,10 @@ def goforit(a,String):
             cnt+=1
     ret=[]
     if cnt!=0:
-        ret.append("😍 found "+String+" in the pdf - "+str(a)+" goto page number "+str(foc)+"\n( "+str(cnt)+" occurances )\n")
+        ret.append("found "+String+" in the pdf - "+str(a)+" goto page number "+str(foc)+"\n( "+str(cnt)+" occurances )\n")
         ret.append("in file "+str(a)+" word "+String+" seen in "+str(cnt)+" pages first occurance in page "+str(foc))
     else:
-        ret.append("Oh no! 🥴 no occurance of your word found\n")
+        ret.append("Oh no!  no occurance of your word found\n")
     return ret
 
 def fun(tString):
@@ -42,7 +44,7 @@ def fun(tString):
 
 window = Tk()
 
-window.title("Made with ♥️ for math peeps")
+window.title("Made with  for math peeps")
 
 window.geometry('500x450')
 
@@ -69,5 +71,4 @@ def clicked():
 btn = Button(window, text=" Go ", command=clicked)
 
 btn.grid(column=2, row=0)
-
 window.mainloop()
